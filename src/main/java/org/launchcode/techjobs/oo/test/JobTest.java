@@ -85,14 +85,14 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
 
-        Job job1 = new Job();
+        Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency(""));
 
         String testString = "\n" +
                 "ID: " + job1.getId() + "\n" +
-                "Name: " + "Data not available" + "\n" +
-                "Employer: " + "Data not available" + "\n" +
-                "Location: " + "Data not available" + "\n" +
-                "Position Type: " + "Data not available" + "\n" +
+                "Name: " + job1.getName() + "\n" +
+                "Employer: " + job1.getEmployer() + "\n" +
+                "Location: " + job1.getLocation() + "\n" +
+                "Position Type: " + job1.getPositionType() + "\n" +
                 "Core Competency: " + "Data not available" +
                 "\n";
 

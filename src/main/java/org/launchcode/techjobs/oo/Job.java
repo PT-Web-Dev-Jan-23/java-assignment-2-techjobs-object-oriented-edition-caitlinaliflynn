@@ -48,29 +48,40 @@ public class Job {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
     @Override
     public String toString() {
-        StringBuilder testString = new StringBuilder("\n");
-        if (id == 0) {
-            testString.append("ID: " + "Data not available" + "\n");
-        } else {
-            testString.append("ID: ").append(id).append("\n");
-        }
-        testString.append("Name: ").append(Objects.requireNonNullElse(name, "Data not available")).append("\n");
-        for (String s : Arrays.asList("Employer: " + Objects.requireNonNullElse(
-                employer, "Data not available") + "\n", "Location: " + Objects.requireNonNullElse(
-                        location, "Data not available") + "\n", "Position Type: " + Objects.requireNonNullElse(
-                                positionType, "Data not available") + "\n", "Core Competency: " + Objects.requireNonNullElse(
-                                        coreCompetency, "Data not available") + "\n")) {
-            testString.append(s);
-        }
-        return testString.toString();
-    }
 
+        String noData = "Data not available";
+
+        if (name.isEmpty()) {
+            setName(noData);
+        }
+        if (employer.toString().isEmpty()) {
+            employer.setValue(noData);
+        }
+        if (location.toString().isEmpty()) {
+            location.setValue(noData);
+        }
+        if (positionType.toString().isEmpty()) {
+            positionType.setValue(noData);
+        }
+        if (coreCompetency.toString().isEmpty()) {
+            coreCompetency.setValue(noData);
+        }
+
+        return "\n" +
+                "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency +
+                "\n";
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-
 
     public int getId() {
         return id;
