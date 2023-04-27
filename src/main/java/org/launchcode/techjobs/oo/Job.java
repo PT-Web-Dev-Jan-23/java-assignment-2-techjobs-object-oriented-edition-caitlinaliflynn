@@ -57,7 +57,11 @@ public class Job {
             testString.append("ID: ").append(id).append("\n");
         }
         testString.append("Name: ").append(Objects.requireNonNullElse(name, "Data not available")).append("\n");
-        for (String s : Arrays.asList("Employer: " + Objects.requireNonNullElse(employer, "Data not available") + "\n", "Location: " + Objects.requireNonNullElse(location, "Data not available") + "\n", "Position Type: " + Objects.requireNonNullElse(positionType, "Data not available") + "\n", "Core Competency: " + Objects.requireNonNullElse(coreCompetency, "Data not available") + "\n")) {
+        for (String s : Arrays.asList("Employer: " + Objects.requireNonNullElse(
+                employer, "Data not available") + "\n", "Location: " + Objects.requireNonNullElse(
+                        location, "Data not available") + "\n", "Position Type: " + Objects.requireNonNullElse(
+                                positionType, "Data not available") + "\n", "Core Competency: " + Objects.requireNonNullElse(
+                                        coreCompetency, "Data not available") + "\n")) {
             testString.append(s);
         }
         return testString.toString();
